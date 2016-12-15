@@ -1,0 +1,123 @@
+# Global git config file
+
+[core]
+    autocrlf      = false
+    safecrlf      = true
+	excludesFile  = ~/.config/git/ignore
+    editor        = subl -n -w
+    pager         = less -+$LESS -R
+
+[include]
+    # Includes user info
+    path = ~/.config/git/config.user
+
+[credential]
+    helper = osxkeychain
+
+[push]
+    default = current
+
+[pull]
+    default = current
+
+[diff]
+    mnemonicprefix = true
+
+[color]
+    ui      = auto
+    branch  = auto
+    diff    = auto
+    status  = auto
+
+[gitflow "branch"]
+    master      = master
+    develop     = develop
+[gitflow "prefix"]
+    feature     = feature/
+    release     = release/
+    bugfix      = bugfix/
+    hotfix      = hotfix/
+    support     = support/
+    versiontag  = v
+
+[url "https://gist.github.com/"]
+    insteadOf = gist://
+
+[url "https://github.com/"]
+    insteadOf = gh://
+
+[url "git@github.com:"]
+    InsteadOf      = gh:
+    pushInsteadOf  = git://github.com/
+    pushInsteadOf  = https://github.com/
+
+[alias]
+    # basic
+    st  = status -s 
+    a   = add
+    cl  = clone
+    ci  = commit 
+    co  = checkout
+    br  = branch
+    r   = reset
+    cp  = cherry-pick
+    gr  = grep -Ii
+    
+    # tweaks
+    diff    = diff --word-diff
+    branch  = branch -ra
+    grep    = grep -Ii
+    ai      = add --interactive
+
+    # commit
+    cm     = commit -m
+    cma    = commit -a -m
+    amend  = commit --amend
+    ca     = commit --amend -C HEAD
+    caa    = commit -a --amend -C HEAD
+
+    # log
+    lbr  = !git-vtree.sh | less -RS
+    lg   = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    ls   = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll   = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lds  = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ld   = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    lc   = "!f() { git ll \"$1\"^..\"$1\"; }; f"
+
+    # diff
+    d     = diff --word-diff
+    dc    = diff --cached
+    dlc   = diff --cached HEAD^ ; diff last commit
+    dr    = "!f() { git diff -w "$1"^.."$1"; }; f"
+    diffr = "!f() { git diff "$1"^.."$1"; }; f"
+
+    # reset
+    rv   = revert
+    r1   = reset HEAD^
+    r2   = reset HEAD~
+    rh   = reset --hard
+    rh1  = reset HEAD^ --hard
+    rh2  = reset HEAD~ --hard
+
+    # stash
+    sl  = stash list
+    sa  = stash apply
+    ss  = stash save
+    
+    # assume
+    assume      = update-index --assume-unchanged
+    unassume    = update-index --no-assume-unchanged
+    assumed     = "!git ls-files -v | grep ^h | cut -c 3-" ; show assumed files
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged" 
+    assumeall   = "!git status -s | awk {'print $2'} | xargs git assume"
+
+    # misc
+    aliases  = "!git config -l | grep alias | cut -c 7-" ; list all aliases
+    empty    = "!git commit -am\"[empty] Initial commit\" --allow-empty" ; initial empty commit
+    f        = "!git ls-files | grep -i" ; grep filenames
+
+[filter "lfs"] ;github large file storage config
+    clean     = git-lfs clean %f
+    smudge    = git-lfs smudge %f
+    required  = true
