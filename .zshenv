@@ -16,6 +16,12 @@ path=(
   $path
 )
 
+# set the directories that Zsh searches for functions
+fpath=(
+  ~/.shell/fns
+  $fpath
+)
+
 # Set the list of directories that info searches for manuals.
 infopath=(
   /opt/local/share/info
@@ -48,7 +54,7 @@ export JENV_ROOT=/usr/local/var/jenv
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_LOADFILE="$HOME/.shell/zplug.zsh"
-export ZPLUG_CACHE_FILE="$CACHE_DIR/zplug/cache"
+export ZPLUG_CACHE_DIR="$CACHE_DIR/zplug"
 
 # Set options for Homebrew and related programs.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

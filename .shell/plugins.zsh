@@ -12,9 +12,6 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-# set ls colors (command defined in functions.zsh)
-ls_colorconfig --set
-
 # thefuck
 eval "$(thefuck --alias)"
 

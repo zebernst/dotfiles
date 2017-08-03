@@ -14,7 +14,8 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-alias oo="open -a Finder ./" # open current path in finder
+
+alias oo="echo 'use ofd'" # open current path in finder
 
 # autopushd options
 # alias 1='cd -'
@@ -38,9 +39,6 @@ alias ll="ls -AhoFG" 								# long list files
 # alias gls="gls -F --color=auto"			# GNU list files
 # alias gla="gls -AF --color=auto"			# GNU list all files
 # alias gll="gls -AhoF --color=auto"		# GNU long list files
-
-alias show_hidden="defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder"
-alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder"
 
 # push and pop directories on directory stack
 alias pu='pushd'
@@ -217,7 +215,7 @@ alias colorref="spectrum_tb"
 alias volmute="osascript -e 'set volume output muted true'" # mute volume
 alias volfull="sudo osascript -e 'set volume 10'" # full volume
 
-alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+alias ql="quick-look" # preview a file using QuickLook
 
 alias cl="fc -e -|pbcopy" # copy output of last command to clipboard
 alias cpwd='pwd|tr -d "\n"|pbcopy' # copy the working directory path to clipboard
@@ -227,9 +225,7 @@ alias jks='bundle exec jekyll serve --incremental'
 alias jkss='bundle exec jekyll serve --detach'
 alias jkk='pkill -f jekyll'
 
-alias edi='nohup bot-lifesupport.sh &>/dev/null &'
-
 alias npmls='npm list -g --depth=0'
 alias pyvenv='pyenv virtualenv'
 
-alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dot='git dotfiles'

@@ -1,10 +1,10 @@
 # Executes commands at the start of an interactive session.
 #=========================================================
 
-# Set zsh options and load zle widgets
+# set zsh options and load zle widgets
 source "$HOME/.shell/setopts.zsh"
 
-# Define functions
+# load functions
 source "$HOME/.shell/functions.zsh"
 
 # load plugins
@@ -13,5 +13,5 @@ source "$ZPLUG_HOME/init.zsh"
 zplug check || zplug install
 zplug load
 
-# Define aliases
+# define aliases
 source "$HOME/.shell/aliases.zsh"
