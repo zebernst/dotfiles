@@ -26,8 +26,10 @@ zplug 'lib/correction', from:oh-my-zsh
 zplug 'lib/history', from:oh-my-zsh
 zplug 'lib/spectrum', from:oh-my-zsh
 
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
-zplug 'zsh-users/zsh-completions', nice:10
-zplug "zsh-users/zsh-history-substring-search", nice:11
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug 'zsh-users/zsh-completions', defer:3
+zplug "zsh-users/zsh-history-substring-search", \
+	on: "zsh-users/zsh-syntax-highlighting", \
+	defer:3
 
 zplug "nojhan/liquidprompt"

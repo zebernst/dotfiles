@@ -231,3 +231,5 @@ alias edi='nohup bot-lifesupport.sh &>/dev/null &'
 
 alias npmls='npm list -g --depth=0'
 alias pyvenv='pyenv virtualenv'
+
+alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
