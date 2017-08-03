@@ -1,0 +1,6 @@
+# ~/.shell/fns/numpng
+# usage: numpng /path/to/png/directory/*.png SEQUENCE_NAME
+
+autoload zmv
+
+i=1 base='$2' zmv '$1' '${base}_${(l:4::0:)$((i++))}.png'

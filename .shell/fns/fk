@@ -1,0 +1,14 @@
+# ~/.shell/fns/fk
+# build menu to kill processes listed with fp
+
+autoload fp
+
+IFS=$'\n'
+PS3='Kill which process? (1 to cancel): '
+select OPT in "Cancel" $(fp $1); do
+	if [ $OPT != "Cancel" ]; then
+		kill $(echo $OPT|awk '{print $NF}')
+	fi
+	break
+done
+unset IFS
