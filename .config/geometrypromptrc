@@ -1,0 +1,79 @@
+# st3:ft=zsh
+
+
+# ======= theme config =======
+# symbols
+GEOMETRY_SYMBOL_PROMPT="◆"                  # default prompt symbol (default: ▲)
+GEOMETRY_SYMBOL_RPROMPT="◊"                 # multiline prompts (default: ◇)
+GEOMETRY_SYMBOL_EXIT_VALUE="❖"              # displayed when exit value is != 0 (default: △)
+GEOMETRY_SYMBOL_ROOT="◆"                    # when logged in user is root (default: ▲)
+
+# colors
+GEOMETRY_COLOR_EXIT_VALUE="magenta"         # prompt symbol color when exit value is != 0
+GEOMETRY_COLOR_PROMPT="white"               # prompt symbol color
+GEOMETRY_COLOR_ROOT="red"                   # root prompt symbol color
+GEOMETRY_COLOR_DIR="blue"                   # current directory color
+
+# misc
+GEOMETRY_PROMPT_PREFIX="\n"              	# prefix prompt with a new line
+GEOMETRY_PROMPT_SUFFIX=""                   # suffix prompt
+GEOMETRY_PLUGIN_SEPARATOR="  "               # use ' ' to separate right prompt parts
+GEOMETRY_GREP="grep"                        # define which grep-like tool to use (By default it looks for rg, ag and finally grep)
+
+
+
+# active plugins
+GEOMETRY_PROMPT_PLUGINS=(
+    jobs
+    exec_time
+	virtualenv
+	git  
+)
+
+
+# virtualenv
+GEOMETRY_COLOR_VIRTUALENV=yellow           	# Color for virtualenv environment name
+GEOMETRY_COLOR_CONDA=yellow                	# Color for conda environment name
+GEOMETRY_VIRTUALENV_CONDA_SEPARATOR=":"     # String that separates virtualenv and conda environment names if both are active
+GEOMETRY_COLOR_VIRTUALENV_PREFIX=green		# TODO: CUSTOM
+GEOMETRY_VIRTUALENV_PREFIX="py:"			# TODO: CUSTOM
+
+# exec_time
+PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME=1		# Amount of time after which the elapsed_time shows on conclusion of command
+
+
+# ==== git =====
+# symbols
+GEOMETRY_SYMBOL_GIT_DIRTY="⏣"                 	# when repo has "dirty" state (default ⬡)
+GEOMETRY_SYMBOL_GIT_CLEAN="⬢"                 	# when repo has "clean" state (default ⬢)
+GEOMETRY_SYMBOL_GIT_BARE="⬡"                  	# when repo is bare (no working tree) (default ⬢)
+GEOMETRY_SYMBOL_GIT_REBASE="\uF418"           	# when in middle of rebase (default \uE0A0)
+GEOMETRY_SYMBOL_GIT_UNPULLED="⇣"             	# when there are unpulled changes
+GEOMETRY_SYMBOL_GIT_UNPUSHED="⇡"              	# when there are unpushed changes
+GEOMETRY_SYMBOL_GIT_CONFLICTS_SOLVED="◆"      	# when all conflicts have been solved
+GEOMETRY_SYMBOL_GIT_CONFLICTS_UNSOLVED="◈"    	# when there are still unsolved conflicts
+
+# colors
+GEOMETRY_COLOR_GIT_DIRTY=red                	# when repo has "dirty" state
+GEOMETRY_COLOR_GIT_CLEAN=green              	# when repo has "clean" state
+GEOMETRY_COLOR_GIT_BARE=blue               		# when repo is bare (no working tree)
+GEOMETRY_COLOR_GIT_CONFLICTS_UNSOLVED=red   	# when there are unsolved conflicts
+GEOMETRY_COLOR_GIT_CONFLICTS_SOLVED=green   	# when all conflicts have been solved
+GEOMETRY_COLOR_GIT_BRANCH=242               	# branch name color
+
+# flags
+PROMPT_GEOMETRY_GIT_CONFLICTS=false         	# show info if there is a merge conflict
+PROMPT_GEOMETRY_GIT_TIME=true               	# display time since last commit
+PROMPT_GEOMETRY_GIT_TIME_LONG_FORMAT=false  	# use long format for time since last commit
+PROMPT_GEOMETRY_GIT_TIME_SHOW_EMPTY=true    	# whether to show time if there is no commits
+
+# misc
+GEOMETRY_GIT_NO_COMMITS_MESSAGE="no commits"	# message where repository has no commits
+GEOMETRY_GIT_SEPARATOR="::"                 	# customize git character separator
+GEOMETRY_GIT_BRANCH_PREFIX="git:"				# TODO: CUSTOM
+GEOMETRY_COLOR_GIT_BRANCH_PREFIX=cyan			# TODO: CUSTOM
+
+
+# jobs
+GEOMETRY_COLOR_JOBS=blue 					# the color of the jobs section
+GEOMETRY_SYMBOL_JOBS="\uF085"

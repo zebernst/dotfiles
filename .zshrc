@@ -15,3 +15,4 @@ zplug load
 
 # define aliases
 source "$HOME/.shell/aliases.zsh"
+
