@@ -4,7 +4,7 @@
     autocrlf      = false
     safecrlf      = true
     excludesFile  = /Users/zach/.config/git/ignore
-    editor        = subl -n -w
+    editor        = vim
     pager         = less -+$LESS -R
 
 [include]
