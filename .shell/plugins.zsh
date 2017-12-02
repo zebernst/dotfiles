@@ -4,6 +4,10 @@ iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $( (git branch 2> /dev/null ) | grep \* | cut -c3- )
 }
 
+# activate prompt settings
+# source "$HOME/.config/spaceshippromptrc"
+source "$HOME/.config/geometrypromptrc"
+
 # setup fasd
 fasd_cache="$CACHE_DIR/.fasd-init"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
@@ -43,4 +47,4 @@ eval "$(rbenv init -)"
 compctl -g '~/.teamocil/*(:t:r)' itermocil
 
 # alias hub as git
-eval "$(hub alias -s)"
+eval "$(hub alias -s)" 

@@ -25,3 +25,5 @@ unsetopt incappendhistory
 export COMPLETION_WAITING_DOTS="true"
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1

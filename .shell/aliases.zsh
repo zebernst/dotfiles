@@ -228,4 +228,12 @@ alias jkk='pkill -f jekyll'
 alias npmls='npm list -g --depth=0'
 alias pyvenv='pyenv virtualenv'
 
-alias dot='git dotfiles'
+# alias dot='git dotfiles'
+
+# set git to work correctly when in dotfiles directory
+# alias git="[[ $PWD =~ $HOME/.dotfiles ]] && hub --git-dir=$HOME/.dotfiles --work-tree=$HOME || hub"
+#-C $HOME
+
+alias tree="tree -C" # use tree with colored output
+
+alias vim="mvim -v" # use macvim instead of regular vim
