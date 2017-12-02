@@ -41,7 +41,7 @@ manpath=(
 # Set name to show in prompt.
 export DEFAULT_USER="Zach"
 
-export EDITOR='subl'
+export EDITOR='vim'
 
 export PAGER="less"
 export MANPAGER="less -is"
