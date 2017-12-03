@@ -19,6 +19,7 @@
 			"path": "/Users/zach",
 			"file_include_patterns": 
 			[
+				".install.sh",
 				".vimrc", 
 				".zshrc", 
 				".zshenv",
