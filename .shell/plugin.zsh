@@ -47,4 +47,4 @@ eval "$(rbenv init -)"
 compctl -g '~/.teamocil/*(:t:r)' itermocil
 
 # alias hub as git
-eval "$(hub alias -s)" 
+# eval "$(hub alias -s)" # turning this off so that my git alias command will work. workaround is in git config.

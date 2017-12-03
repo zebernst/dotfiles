@@ -18,6 +18,7 @@ zplug "geometry-zsh/geometry"
 
 
 
+
 zplug "supercrabtree/k"
 zplug "djui/alias-tips"
 zplug "paoloantinori/hhighlighter", 			as:command, use:"h.sh"

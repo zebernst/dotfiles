@@ -3,16 +3,16 @@
 [core]
     autocrlf      = false
     safecrlf      = true
-    excludesFile  = /Users/zach/.config/git/ignore
+    excludesFile  = ~/.config/git/ignore
     editor        = vim
     pager         = less -+$LESS -R
 
 [include]
     # Includes user info
-    path = ~/.config/git/config.user
+    path    = ~/.config/git/config.user
 
 [credential]
-    helper = osxkeychain
+    helper  = osxkeychain
 
 [push]
     default = current
@@ -22,6 +22,11 @@
 
 [diff]
     mnemonicprefix = true
+
+[pager]
+    diff    = $(brew --prefix git)/share/git-core/contrib/diff-highlight/diff-highlight | less -+$LESS -R
+    log     = $(brew --prefix git)/share/git-core/contrib/diff-highlight/diff-highlight | less -+$LESS -R
+    show    = $(brew --prefix git)/share/git-core/contrib/diff-highlight/diff-highlight | less -+$LESS -R
 
 [color]
     ui      = auto
@@ -41,10 +46,10 @@
     versiontag  = v
 
 [url "https://gist.github.com/"]
-    insteadOf = gist://
+    insteadOf   = gist://
 
 [url "https://github.com/"]
-    insteadOf = gh://
+    insteadOf   = gh://
 
 [url "git@github.com:"]
     InsteadOf      = gh:
@@ -55,6 +60,7 @@
     # basic
     st  = status -s 
     a   = add
+    ai  = add --interactive
     cl  = clone
     ci  = commit 
     co  = checkout
@@ -62,43 +68,42 @@
     r   = reset
     cp  = cherry-pick
     gr  = grep -Ii
-    
-    # tweaks
-    diff    = diff --word-diff
-    branch  = branch -ra
-    grep    = grep -Ii
-    ai      = add --interactive
 
     # commit
-    cm     = commit -m
-    cma    = commit -a -m
-    amend  = commit --amend
-    ca     = commit --amend -C HEAD
-    caa    = commit -a --amend -C HEAD
+    cm      = commit -m                 # commit with the specified message
+    cv      = commit -v                 # shows file diff in commit message
+    cma     = commit -a -m              # commit all unstaged changes with the specified message
+    amend   = commit --amend -C HEAD    # amend staged changes to previous commit, keeping the same commit message
+
+    # setup
+    sup     = branch --set-upstream-to=origin/$(git symbolic-ref --short -q HEAD)
 
     # log
-    lg   = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
-    ls   = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll   = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lds  = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    ld   = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-    last = log -1 HEAD
+    lg      = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    ls      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lds     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ld      = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    last    = log -1 HEAD
 
     # diff
-    d     = diff --word-diff
-    dc    = diff --cached
-    dlc   = diff --cached HEAD^ ; diff last commit
-    dr    = "!f() { git diff -w "$1"^.."$1"; }; f"
-    diffr = "!f() { git diff "$1"^.."$1"; }; f"
+    df      = diff --word-diff      ; diff working directory by words, not lines
+    dc      = diff --cached         ; diff staged changes
+    dlc     = diff --cached HEAD^   ; diff last commit
 
     # reset
-    rv   = revert
+    undo    = reset HEAD~1 --mixed  ; undo changes from last commit
+    wipe    = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard" ;commit everything in wd and do a hard reset, isolating the savepoint commit
+    unstage = reset --              ; unstage file from HEAD
+    untrack = rm --cached           ; remove file from repository, and keep in working directory as untracked file
+
+    rv   = revert                   ; create a new commit that undoes changes made in the specified commit and apply to current branch ("safe" undo)
     r1   = reset HEAD^
     r2   = reset HEAD~
     rh   = reset --hard
     rh1  = reset HEAD^ --hard
     rh2  = reset HEAD~ --hard
-    unstage = reset HEAD --
+    
 
     # stash
     sl  = stash list
@@ -106,20 +111,34 @@
     ss  = stash save
     
     # assume
-    assume      = update-index --assume-unchanged
-    unassume    = update-index --no-assume-unchanged
-    assumed     = "!git ls-files -v | grep ^h | cut -c 3-" ; show assumed files
+    assume      = update-index --assume-unchanged           ; assume untracked file stays unchanged
+    unassume    = update-index --no-assume-unchanged        ; don't assume untracked file stays unchanged
+    assumed     = "!git ls-files -v | grep ^h | cut -c 3-"  ; show assumed files
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged" 
     assumeall   = "!git status -s | awk {'print $2'} | xargs git assume"
 
+    # hub commands
+    pull-request= "!hub pull-request"
+    fork        = "!hub fork"
+    create      = "!hub create"
+    browse      = "!hub browse"
+    compare     = "!hub compare"
+    release     = "!hub release"
+    issue       = "!hub issue"
+    ci-status   = "!hub ci-status"
+
     # misc
-    aliases  = "!git config -l | grep alias | cut -c 7-" ; list all aliases
-    empty    = "!git commit -am\"[empty] Initial commit\" --allow-empty" ; initial empty commit
-    f        = "!git ls-files | grep -i" ; grep filenames
+    root        = "!cd $(git rev-parse --show-toplevel || echo ".")"    ; takes you to the top level of the repository
+    ec          = config --global --edit                                ; edit global config in $EDITOR
+    aliases     = "!anon() { git config --get-regexp \"^alias\\.${1}\" | gsed -E 's/^alias\\.(\\w+) (.*)$/git \\1 = \\2/' | sort; }; anon"    ; list aliases (filter by regex)
+    initcommit  = "!git commit -am\"[empty] initial commit\" --allow-empty" ; initial empty commit
+    f           = "!git ls-files | grep -i"                     ; grep filenames
 
-    dotfiles = "!git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-[filter "lfs"] ;github large file storage config
+;   dotfiles = "!git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" 
+
+# Github large file storage config
+[filter "lfs"] 
     clean     = git-lfs clean %f
     smudge    = git-lfs smudge %f
     required  = true
