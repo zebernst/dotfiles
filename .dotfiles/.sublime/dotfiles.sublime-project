@@ -40,14 +40,6 @@
 			"name": "shell",
 			"path": "/Users/zach/.shell"
 		},
-		{
-			"name": "shell (remote hosts)",
-			"path": "/Users/zach/.shellremote"
-		},
-		{
-			"name": "vim",
-			"path": "/Users/zach/.vim"
-		},
 	],
 	"settings":
 	{

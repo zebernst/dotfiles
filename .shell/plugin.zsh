@@ -16,6 +16,9 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # thefuck
 eval "$(thefuck --alias)"
 
@@ -25,7 +28,7 @@ if [ -f $(brew --prefix)/etc/brew-wrap ]; then
 fi
 
 # activate mactex
-eval `/usr/libexec/path_helper -s`
+#eval `/usr/libexec/path_helper -s`
 
 # activate pyenv
 if which pyenv > /dev/null; then 
@@ -35,16 +38,8 @@ if which pyenv-virtualenv-init > /dev/null; then
 	eval "$(pyenv virtualenv-init -)";
 fi
 
-# activate jenv
-if which jenv > /dev/null; then
-	eval "$(jenv init -)";
-fi
-
-# activate rbenv
-eval "$(rbenv init -)"
-
 # activate itermocil completion
-compctl -g '~/.teamocil/*(:t:r)' itermocil
+#compctl -g '~/.teamocil/*(:t:r)' itermocil
 
 # alias hub as git
 # eval "$(hub alias -s)" # turning this off so that my git alias command will work. workaround is in git config.

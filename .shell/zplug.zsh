@@ -17,14 +17,14 @@ zplug "geometry-zsh/geometry"
 # zplug "sindresorhus/pure", 						use:pure.zsh, from:github, as:theme, on:"mafredri/zsh-async"
 
 
-
-
+#=================#
+##### Plugins #####
+#=================#
 zplug "supercrabtree/k"
 zplug "djui/alias-tips"
 zplug "paoloantinori/hhighlighter", 			as:command, use:"h.sh"
 zplug "donnemartin/gitsome", 					use:"scripts/gh_complete.sh" # gitsome is installed with pip, this installs completion
 zplug "b4b4r07/enhancd", 						use:"init.sh"
-zplug "Tarrasch/zsh-autoenv"
 # zplug "b4b4r07/emoji-cli"
 zplug "junegunn/fzf-bin", 						from:gh-r, as:command, use:"*darwin*amd64*", rename-to:fzf
 zplug "junegunn/fzf", 							use:"shell/{completion,key-bindings}", on:"junegunn/fzf-bin"

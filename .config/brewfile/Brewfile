@@ -1,0 +1,37 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew ack
+brew cheat
+brew coreutils
+brew direnv
+brew exa
+brew fasd
+brew git
+brew hr
+brew hub
+brew icu4c
+brew jq
+brew libevent
+brew mas
+brew node
+brew oniguruma
+brew openssl
+brew pv
+brew python
+brew python@2
+brew thefuck
+brew tmux
+brew tree
+brew youtube-dl
+brew zplug --with-zsh
+brew zsh
+
+tap homebrew/cask
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 937984704 Amphetamine (3.0.2)
