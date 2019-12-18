@@ -38,6 +38,9 @@ if which pyenv-virtualenv-init > /dev/null; then
 	eval "$(pyenv virtualenv-init -)";
 fi
 
+# pipenv
+eval "$(pipenv --completion)"
+
 # activate itermocil completion
 #compctl -g '~/.teamocil/*(:t:r)' itermocil
 

@@ -1,8 +1,8 @@
 # Global git config file
 
 [core]
-    autocrlf      = false
-    safecrlf      = true
+	autocrlf      = input
+    safecrlf      = warn
     excludesFile  = ~/.config/git/ignore
     editor        = vim
     pager         = less -+$LESS -R
@@ -10,6 +10,9 @@
 [include]
     # Includes user info
     path    = ~/.config/git/config.user
+
+[gpg]
+	program = /usr/local/bin/gpg
 
 [credential]
     helper  = osxkeychain
@@ -22,6 +25,9 @@
 
 [diff]
     mnemonicprefix = true
+
+[commit]
+    gpgsign = true
 
 [pager]
     diff    = $(brew --prefix git)/share/git-core/contrib/diff-highlight/diff-highlight | less -+$LESS -R
@@ -80,10 +86,10 @@
 
     # log
     lg      = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
-    ls      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lds     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    ld      = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    # ls      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    # ll      = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    # lds     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    # ld      = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
     last    = log -1 HEAD
 
     # diff
@@ -133,9 +139,8 @@
     aliases     = "!anon() { git config --get-regexp \"^alias\\.${1}\" | gsed -E 's/^alias\\.(\\w+) (.*)$/git \\1 = \\2/' | sort; }; anon"    ; list aliases (filter by regex)
     initcommit  = "!git commit -am\"[empty] initial commit\" --allow-empty" ; initial empty commit
     f           = "!git ls-files | grep -i"                     ; grep filenames
+    newignore   = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi" # supported commands: git newignore <language>[, language, ...] | <list>
 
-
-;   dotfiles = "!git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" 
 
 # Github large file storage config
 [filter "lfs"] 

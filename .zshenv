@@ -11,7 +11,9 @@ typeset -UT INFOPATH infopath
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  /usr/local/opt/python/libexec/bin
   /opt/local/{bin,sbin}
+  /usr/local/opt/ruby/bin
   $HOME/.bin
   $path
 )
@@ -46,6 +48,9 @@ export EDITOR='vim'
 export PAGER="less"
 export MANPAGER="less -is"
 
+
+# get gpg to work
+export GPG_TTY=$(tty)
 
 
 # Set environment variables for version managers. 

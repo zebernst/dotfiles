@@ -13,7 +13,7 @@ alias _='sudo'
 alias ax="chmod a+x" # grants permission to execute
 
 #———————————————————————————————————————————————————————————————
-# navigation
+# filesystem navigation
 #———————————————————————————————————————————————————————————————
 
 alias -g ...='../..'
@@ -21,7 +21,7 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
-alias oo="echo 'use ofd'" 		# open current path in finder
+alias oo="echo 'use ofd'" 		# DEPRECATED: open current path in finder
 
 # push and pop directories on directory stack
 alias pu='pushd'
@@ -46,9 +46,8 @@ alias la="ls -AFG" 				# list all files
 alias ll="ls -AhoFG" 			# long list files
 
 alias k="k -Ah"					# list all directories and display human filesizes
-# alias tree="tree -C" 			# use tree with colored output
 alias exa="exa -a"				# automatically display hidden files with exa
-alias tree="exa -aT"			# same as above but use exa instead
+alias tree="exa -T"				# same as above but use exa instead
 
 # alias gls="gls -F --color=auto"			# GNU list files
 # alias gla="gls -AF --color=auto"			# GNU list all files
@@ -60,8 +59,6 @@ alias tree="exa -aT"			# same as above but use exa instead
 #———————————————————————————————————————————————————————————————
 
 alias vim="mvim -v" 			# use macvim instead of regular vim
-
-alias pyvenv='pyenv virtualenv'
 
 # set git to work correctly when in dotfiles directory
 # alias git="[[ $PWD =~ $HOME/.dotfiles ]] && hub --git-dir=$HOME/.dotfiles --work-tree=$HOME || hub"
@@ -125,10 +122,5 @@ alias jks='bundle exec jekyll serve --incremental'
 alias jkss='bundle exec jekyll serve --detach'
 alias jkk='pkill -f jekyll'
 
-
-
-
-
-
-
-
+alias pps='pipenv shell'
+alias ppr='pipenv run'

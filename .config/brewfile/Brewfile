@@ -3,35 +3,96 @@
 
 tap homebrew/core
 brew ack
+brew adns
+brew autoconf
+brew b2-tools
+brew boost
 brew cheat
 brew coreutils
+brew cscope
 brew direnv
 brew exa
 brew fasd
+brew flac
+brew freetype
+brew gdbm
+brew geckodriver
+brew geos
+brew gettext
 brew git
+brew gmp
+brew gnu-sed
+brew gnupg
+brew gnutls
 brew hr
 brew hub
 brew icu4c
+brew imagemagick
+brew jpeg
 brew jq
+brew libassuan
+brew libebml
 brew libevent
+brew libffi
+brew libgcrypt
+brew libgpg-error
+brew libksba
+brew libmagic
+brew libmatroska
+brew libogg
+brew libpng
+brew libtasn1
+brew libtiff
+brew libtool
+brew libunistring
+brew libusb
+brew libvorbis
+brew libyaml
+brew little-cms2
+brew lua
+brew macvim
 brew mas
+brew mkvtoolnix
+brew mono
+brew nettle
 brew node
+brew npth
 brew oniguruma
+brew openjpeg
 brew openssl
+brew openssl@1.1
+brew p11-kit
+brew pinentry
+brew pinentry-mac
+brew pipenv
+brew pkg-config
 brew pv
+brew pyenv
+brew pyinstaller
 brew python
 brew python@2
+brew readline
+brew ruby
+brew sqlite
 brew thefuck
 brew tmux
 brew tree
+brew webp
+brew xz
 brew youtube-dl
 brew zplug --with-zsh
 brew zsh
 
 tap homebrew/cask
+cask quicklook-json
 
 tap rcmdnk/file
 brew brew-file
+
+# Other Homebrew packages
+brew gnupg2
+brew mp4box
+brew python3
 
 # App Store applications
 appstore 937984704 Amphetamine (3.0.2)

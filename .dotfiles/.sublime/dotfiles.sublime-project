@@ -12,34 +12,40 @@
 	[
 		{
 			"name": ".git",
-			"path": "/Users/zach/.dotfiles"
+			"path": "/Users/zachbernstein/.dotfiles"
 		},
 		{
-			"name": "~",
-			"path": "/Users/zach",
-			"file_include_patterns": 
+			"file_include_patterns":
 			[
 				".install.sh",
-				".vimrc", 
-				".zshrc", 
+				".vimrc",
+				".zshrc",
 				".zshenv",
 				".zlogin",
 				".netrc"
 			],
-			"folder_exclude_patterns": ["*"]
+			"folder_exclude_patterns":
+			[
+				"*"
+			],
+			"name": "~",
+			"path": "/Users/zachbernstein"
 		},
 		{
 			"name": "bin",
-			"path": "/Users/zach/.bin"
+			"path": "/Users/zachbernstein/.bin"
 		},
 		{
 			"name": "config",
-			"path": "/Users/zach/.config"
+			"path": "/Users/zachbernstein/.config"
 		},
 		{
 			"name": "shell",
-			"path": "/Users/zach/.shell"
+			"path": "/Users/zachbernstein/.shell"
 		},
+		{
+			"path": "."
+		}
 	],
 	"settings":
 	{
